@@ -5,5 +5,6 @@ public interface List <T> {
     int getSize();
     boolean contains(Object o);
     void clear();
+    int indexOf(Object o);
 
 }
