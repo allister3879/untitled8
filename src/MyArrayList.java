@@ -27,6 +27,11 @@ public class MyArrayList<T> implements List{
         size--;  // decrease size
     }
 
+    @Override
+    public int getSize() {
+        return size; // returns size value
+    }
+
     public void increaseBuffer(){
         T[] newArr = (T[]) new Object[arr.length*2]; // creates double sized new array
         for(int i=0; i< arr.length; i++){
