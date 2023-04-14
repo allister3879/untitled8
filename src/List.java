@@ -7,5 +7,6 @@ public interface List <T> {
     void clear();
     int indexOf(Object o);
     int lastIndexOf(Object o);
+    void sort();
 
 }
