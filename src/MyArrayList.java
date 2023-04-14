@@ -49,9 +49,23 @@ public class MyArrayList<T> implements List{
 
     @Override
     public int indexOf(Object o){
+        int index = 0;
         for(int i = 0; i < arr.length;i++)
             if(o.equals(arr[i]))  // if element exist in array
-                return i;  // return index
+                if(index > 0)
+                    continue;
+                else
+                    index = i;  // index of first object's appearance
+        return index;
+    }
+
+    @Override
+    public int lastIndexOf(Object o) {
+        int lastIndex = 0;
+        for(int i = 0; i < arr.length;i++)
+            if(o.equals(arr[i]))  // if element exist in array
+                lastIndex = i;  // index of last object's appearance
+        return lastIndex;
     }
 
     public void increaseBuffer(){

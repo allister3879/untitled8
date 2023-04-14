@@ -6,5 +6,6 @@ public interface List <T> {
     boolean contains(Object o);
     void clear();
     int indexOf(Object o);
+    int lastIndexOf(Object o);
 
 }
