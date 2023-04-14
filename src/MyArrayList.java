@@ -32,6 +32,15 @@ public class MyArrayList<T> implements List{
         return size; // returns size value
     }
 
+    @Override
+    public boolean contains(Object o) {
+        int counter = 0;  // creat counter of object appearance
+        for(int i = 0; i < arr.length;i++)
+            if(o.equals(arr[i]))  // if element exist in array
+                counter++;  // counter increase
+        return counter >= 1;  // return true if counter >= 1, otherwise false
+    }
+
     public void increaseBuffer(){
         T[] newArr = (T[]) new Object[arr.length*2]; // creates double sized new array
         for(int i=0; i< arr.length; i++){

@@ -3,5 +3,6 @@ public interface List <T> {
     T getElement(int index);
     void remove(int index);
     int getSize();
+    boolean contains(Object o);
 
 }
