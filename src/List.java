@@ -4,5 +4,6 @@ public interface List <T> {
     void remove(int index);
     int getSize();
     boolean contains(Object o);
+    void clear();
 
 }

@@ -41,6 +41,12 @@ public class MyArrayList<T> implements List{
         return counter >= 1;  // return true if counter >= 1, otherwise false
     }
 
+    @Override
+    public void clear() {
+        this.arr = (T[]) new Object[5]; // create new arr
+        this.size = 0; // arr is empty
+    }
+
     public void increaseBuffer(){
         T[] newArr = (T[]) new Object[arr.length*2]; // creates double sized new array
         for(int i=0; i< arr.length; i++){
