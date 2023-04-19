@@ -87,6 +87,13 @@ public class MyLinkedList<E> implements List{
 
     @Override
     public boolean contains(Object o) {
+        MyNode current = head;
+        while (current != null) {
+            if (o.equals(current.data)) {
+                return true;
+            }
+            current = current.next;
+        }
         return false;
     }
 

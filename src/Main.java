@@ -16,7 +16,9 @@ public class Main {
         System.out.println(a.lastIndexOf(1)); //print 3
         a.sort();
 
-        System.out.println("------------");
-
+        System.out.println("\n");
+        b.add(5);
+        System.out.println(b.getElement(0));
+        System.out.println(b.contains(5));
     }
 }
