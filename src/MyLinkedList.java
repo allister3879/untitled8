@@ -34,9 +34,7 @@ public class MyLinkedList<E> implements List{
 
     @Override
     public Object getElement(int index) {
-        if (index < 0 || index >= size) {  // check if such index available
-            throw new IndexOutOfBoundsException();
-        }
+        checkIndex(index);
         MyNode current;
         if (index < size / 2) {  // if index before middle node
             current = head;    // current starts from head node
@@ -54,8 +52,32 @@ public class MyLinkedList<E> implements List{
     }
 
     @Override
-    public void remove(int index) {
-
+    public E remove(int index) {
+        checkIndex(index);
+        MyNode current;
+        if (index < size / 2) {  // if index before middle node
+            current = head;    // current starts from head node
+            for (int i = 0; i < index; i++) {
+                current = current.next;  // link next node until reaches needed
+            }
+        } else {  // if index after middle node
+            current = tail; // current starts from last node
+            for (int i = size - 1; i > index; i--) {
+                current = current.prev; // link previous unttil reaches needed
+            }
+        }
+        if (current.prev == null) { // if remove head node
+            head = current.next;  // assign next as a new head
+        } else {
+            current.prev.next = current.next; // else replace current node with next
+        }
+        if (current.next == null) { // if remove tail node
+            tail = current.prev; // assign prev node as a new tail
+        } else {
+            current.next.prev = current.prev; // replace current node with prev
+        }
+        size--; // decrease size
+        return current.data;
     }
 
     @Override
@@ -86,5 +108,11 @@ public class MyLinkedList<E> implements List{
     @Override
     public void sort() {
 
+    }
+
+    public void checkIndex(int index){
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
     }
 }

@@ -21,12 +21,13 @@ public class MyArrayList<T> implements List {
     }
 
     @Override
-    public void remove(int index) {
+    public T remove(int index) {
         checkIndex(index);  // method to check index
         for (int i = index + 1; i < size; i++) {  // create for loop to work with elements starting from special index
             arr[i - 1] = arr[i];   // reassign element to previous index
         }
         size--;  // decrease size
+        return null;
     }
 
     @Override
