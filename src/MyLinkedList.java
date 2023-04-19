@@ -87,18 +87,29 @@ public class MyLinkedList<E> implements List{
 
     @Override
     public boolean contains(Object o) {
-        MyNode current = head;
-        while (current != null) {
-            if (o.equals(current.data)) {
+        MyNode current = head;  // start with head
+        while (current != null) {  // until the end
+            if (o.equals(current.data)) { // if object equals the data returns true
                 return true;
             }
-            current = current.next;
+            current = current.next;  // else current equals to next node and check again
         }
         return false;
     }
 
     @Override
     public void clear() {
+        MyNode current = head; // start from head
+        while (current != null) {  // until the end node
+            MyNode next = current.next; // variable to keep next node
+            current.data = null;
+            current.next = null;
+            current.prev = null; // assign every value to the null
+            current = next; // next value turn into current
+        }
+        head = null;
+        tail = null;
+        size = 0; // size equal to zero
 
     }
 
