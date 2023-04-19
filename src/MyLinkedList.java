@@ -145,7 +145,33 @@ public class MyLinkedList<E> implements List{
 
     @Override
     public void sort() {
+        if (size <= 1) {
+            return;
+        } // return if less than 2 elements
+        MyNode current = head;
+        for (int i = 0; i <size; i++) {
+            for (int j = i+1; j <size; j++) {
+                int n1 = Integer.parseInt(String.valueOf(current.data));  // variables to store int value
+                int n2 = Integer.parseInt(String.valueOf(current.next.data));
+                if(n1 < n2) {      // compare int values
+                    E temp = current.data;
+                    current.data = current.next.data;
+                    current.next.data = temp; // swap using  temp value
+                }
+            }
+        }
 
+        MyNode current1 = tail;
+        while (current1 != null){
+            System.out.print(current1.data+" ");
+            current1 = current1.prev;  // print in ascending order
+        }
+
+    }
+    private void swap(MyNode n1, MyNode n2) {
+        E temp = n1.data;
+        n1.data = n2.data;
+        n2.data = temp;
     }
 
     public void checkIndex(int index){

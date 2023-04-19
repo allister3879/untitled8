@@ -17,8 +17,10 @@ public class Main {
         a.sort();
 
         System.out.println("\n");
-        b.add(5);
-        System.out.println(b.getElement(0));
-        System.out.println(b.contains(5));
+        b.add(3);
+        b.add(4);
+        b.add(2);
+        b.add(1);
+        b.sort();
     }
 }
