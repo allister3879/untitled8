@@ -130,7 +130,17 @@ public class MyLinkedList<E> implements List{
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        int index = size - 1; // index of tail
+        MyNode current = tail;
+        while (current != null) {  // while loop to check from tail to head
+            if (o.equals(current.data)) {
+                return index;  // if equals return index
+            }
+            index--;  // else index decrease
+            current = current.prev; // prev node turn into current
+        }
+        return -1; // return -1 if such data doesn't exist
+
     }
 
     @Override
