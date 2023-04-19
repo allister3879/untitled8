@@ -53,42 +53,45 @@ public class MyArrayList<T> implements List {
     public int indexOf(Object o) {
         int index = 0;
         for (int i = 0; i < arr.length; i++)
-            if (o.equals(arr[i]))  // if element exist in array
-                if (index > 0)
-                    continue;
-                else
-                    index = i;  // index of first object's appearance
+            if (o.equals(arr[i]))// if element exist in array
+                if (index == 0)
+                    index = i;// index of first object's appearance
         return index;
     }
 
     @Override
     public int lastIndexOf(Object o) {
         int lastIndex = 0;
-        for (int i = 0; i < arr.length; i++)
-            if (o.equals(arr[i]))  // if element exist in array
-                lastIndex = i;  // index of last object's appearance
+        for (int i = arr.length-1; i > 0; i--)
+            if (o.equals(arr[i]))// if element exist in array
+                if(lastIndex == 0) {
+                    lastIndex = i;
+                }// index of last object's appearance
         return lastIndex;
     }
 
     @Override
     public void sort() {
         checkIfInteger(arr[0]);
-        double temp = 0;
-        double[] array = new double[size];
-        for (int i = 0; i < arr.length; i++)
-            array[i] = (double) arr[i]; // copying array to double arr
+        int temp = 0;
+        int[] arr1 = new int[size];
+        for(int i = 0; i<arr1.length; i++){
+            T x = getElement(i);
+            arr1[i] = Integer.parseInt(String.valueOf(x));
+        }
 
-        for (int i = 1; i < arr.length; i++) {
-            for (int j = i; j > 0; j--) {
-                if (array[j] < array[j-1]) { // check from last element
-                    temp = array[j];  // temporary variable to store
-                    array[j] = array[j-1];
-                    array[j-1] = temp;  // swapping variables
+        for (int i = 0; i <arr1.length; i++) {
+            for (int j = i+1; j <arr1.length; j++) {
+                if(arr1[i] >arr1[j]) {      //swap elements if not in order
+                    temp = arr1[i];
+                    arr1[i] = arr1[j];
+                    arr1[j] = temp;
                 }
             }
         }
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");  // print sorted array
+
+        for(int i = 0; i < arr1.length; i++){
+            System.out.print(arr1[i]+" ");
         }
     }
 
@@ -109,7 +112,7 @@ public class MyArrayList<T> implements List {
     public void checkIfInteger(Object o) {
         boolean integer = true;  // create true boolean
         try {
-            double x = Double.parseDouble(String.valueOf(o));  // checking if object can be parsed
+            int x = Integer.parseInt(String.valueOf(o));  // checking if object can be parsed
         } catch (NumberFormatException numberFormatException) {
             System.out.println("Array can not sorted...");  // raise error if not num
             integer = false;
