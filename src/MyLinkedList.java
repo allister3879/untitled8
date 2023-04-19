@@ -34,7 +34,23 @@ public class MyLinkedList<E> implements List{
 
     @Override
     public Object getElement(int index) {
-        return null;
+        if (index < 0 || index >= size) {  // check if such index available
+            throw new IndexOutOfBoundsException();
+        }
+        MyNode current;
+        if (index < size / 2) {  // if index before middle node
+            current = head;    // current starts from head node
+            for (int i = 0; i < index; i++) {
+                current = current.next;  // link next node until reaches needed
+            }
+        } else {  // if index after middle node
+            current = tail; // current starts from last node
+            for (int i = size - 1; i > index; i--) {
+                current = current.prev; // link previous unttil reaches needed
+            }
+        }
+        return current.data; // return the data stored in current node
+
     }
 
     @Override
