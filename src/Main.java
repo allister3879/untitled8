@@ -3,24 +3,20 @@ public class Main {
         MyArrayList a = new MyArrayList();
         MyLinkedList b = new MyLinkedList();
         // test for my array list
+        a.add(0);
+        a.add(1);
         a.add(2);
-        a.add(1);
-        a.add(3);
-        a.add(0); // add
-        System.out.println(a.getElement(2)); // print 3
-        a.remove(2);
-        System.out.println(a.getSize()); // print 3
-        System.out.println(a.contains(3)); // print false
-        a.add(1);
-        System.out.println(a.indexOf(1));  //print 1
-        System.out.println(a.lastIndexOf(1)); //print 3
+        System.out.println("Array element with index 1: "+ a.getElement(1));
+        System.out.println("Size of current array: "+a.getSize());
+        System.out.println("Array contain '3': "+a.contains(3));
+        System.out.println("Array contain '1': "+a.contains(1));
+        System.out.println("Index of '0': "+a.indexOf(0));
+        a.add(0);
+        System.out.println("Last index of '0': "+a.lastIndexOf(0));
+        a.remove(a.lastIndexOf(0));
         a.sort();
+        a.clear();
 
         System.out.println("\n");
-        b.add(3);
-        b.add(4);
-        b.add(2);
-        b.add(1);
-        b.sort();
     }
 }

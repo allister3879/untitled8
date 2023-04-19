@@ -54,9 +54,11 @@ public class MyArrayList<T> implements List {
     public int indexOf(Object o) {
         int index = 0;
         for (int i = 0; i < arr.length; i++)
-            if (o.equals(arr[i]))// if element exist in array
-                if (index == 0)
-                    index = i;// index of first object's appearance
+            if (o.equals(arr[i])) {// if element exist in array
+                if (index == 0) {
+                    index = i;
+                }
+            }// index of first object's appearance
         return index;
     }
 
