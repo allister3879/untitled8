@@ -115,7 +115,17 @@ public class MyLinkedList<E> implements List{
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        int index = 0; // create variable to store index of object
+        MyNode current = head;
+        while (current != null) {  // while loop to check every node
+            if (o.equals(current.data)) {
+                return index;  // if find such data return index
+            }
+            index++; // else index will increase to 1 while checking every node
+            current = current.next;  // next node turn into current
+        }
+        return -1; // return -1 if such data doesn't exist
+
     }
 
     @Override
