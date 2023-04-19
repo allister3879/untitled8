@@ -18,5 +18,20 @@ public class Main {
         a.clear();
 
         System.out.println("\n");
+
+        b.add(3);
+        b.add(2);
+        b.add(1);
+        b.add(4);
+        System.out.println("Element with index 1: "+b.getElement(1));
+        System.out.println("Size of list: "+b.getSize());
+        System.out.println("List contain '5': "+b.contains(5));
+        System.out.println("List contain '3': "+b.contains(3));
+        System.out.println("Index of '3: "+b.indexOf(3));
+        a.add(3);
+        System.out.println("Last indexx of '3': "+b.lastIndexOf(3));
+        b.remove(3);
+        b.sort();
+        b.clear();
     }
 }
